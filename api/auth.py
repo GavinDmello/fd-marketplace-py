@@ -1,7 +1,6 @@
 from hashlib import sha1
 import email.utils
 import hmac
-import requests
 
 class Auth(object):
 	url = None
