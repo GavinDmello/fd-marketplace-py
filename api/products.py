@@ -18,6 +18,9 @@ class Products(object):
 		endpoint = self.url + "/marketplace/v1/products"	
 		return self.make_get_request(endpoint, self.headers)
 
+	'''
+	Retrieves the product details for any given product.
+	'''
 	def get_product_details(self, product_id):
 		if product_id == None:
 			raise "product_id is not provided"
@@ -26,6 +29,9 @@ class Products(object):
 		endpoint = endpoint.format(product_id)
 		return self.make_get_request(endpoint, self.headers)
 
+	'''
+	Retrieves a list of features for any given product.
+	'''
 	def get_product_features(self, product_id):
 		if product_id == None:
 			raise "product_id is not provided"
@@ -34,6 +40,11 @@ class Products(object):
 		endpoint = endpoint.format(product_id)
 		return self.make_get_request(endpoint, self.headers)
 
+	'''
+	Retrieves a list of “included products” that come with any given product.
+	This may include things such as built-in hardware and accessories and/or 
+	software that comes with it.
+	'''
 	def get_product_includes(self, product_id):
 		if product_id == None:
 			raise "product_id not provided"
@@ -42,6 +53,11 @@ class Products(object):
 		endpoint = endpoint.format(product_id)
 		return self.make_get_request(endpoint, self.headers)
 
+	'''
+	Retrieves a list of technical specifications for any given product. 
+	This may include information such as height and weight as well as the 
+	materials the product is made of in the case of a hardware type product.
+	'''
 	def get_product_specs(self, product_id):
 		if product_id == None:
 			raise "product_id not provided"
@@ -50,6 +66,11 @@ class Products(object):
 		endpoint = endpoint.format(product_id)
 		return self.make_get_request(endpoint, self.headers)
 
+	'''
+	Retrieves all Recommended Products for any given product. 
+	For example, a terminal system may have items like a weight scale 
+	and kitchen printer as its Recommended Products.
+	'''
 	def get_product_recommended(self, product_id):
 		if product_id == None:
 			raise "product_id not provided"
@@ -58,6 +79,9 @@ class Products(object):
 		endpoint = endpoint.format(product_id)
 		return self.make_get_request(endpoint, self.headers)
 
+	'''
+	Retrieves a list of frequently asked questions for any given product.
+	'''
 	def get_product_faq(self, product_id):
 		if product_id == None:
 			raise "product_id not provided"
