@@ -15,6 +15,9 @@ class Auth(object):
 
 	@staticmethod
 	def get_headers():
+		if Auth.username == None or Auth.secret == None :
+			raise "Credentials not set"
+		
 		dt = email.utils.formatdate(usegmt=True)
 		stringToSign = 'date: ' + dt;
 

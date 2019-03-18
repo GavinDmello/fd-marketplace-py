@@ -3,13 +3,8 @@ from auth import Auth
 
 class Products(object):
 	def __init__(self):
-		
-		if Auth.username == None or Auth.secret == None :
-			raise "Credentials not set"
-
 		self.url = Auth.url
 		self.headers = Auth.get_headers()
-
 
 	'''
 	Retrieves a list of products for your Marketplace.
