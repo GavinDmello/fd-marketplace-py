@@ -87,4 +87,7 @@ class Products(object):
 
 	def make_get_request(self, endpoint, headers):
 		r = requests.get(endpoint, headers=headers)
-		return r.content
+		if r.status_code == 200:
+			return r.content
+		else:
+			raise Exception("Exception, API returned " + str(r.status_code))
