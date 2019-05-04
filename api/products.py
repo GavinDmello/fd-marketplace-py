@@ -1,5 +1,6 @@
 import requests
 from auth import Auth
+from outbound import Outbound
 
 class Products(object):
 	def __init__(self):
@@ -11,7 +12,7 @@ class Products(object):
 	'''
 	def get_products(self):
 		endpoint = self.url + "/marketplace/v1/products"	
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	Retrieves the product details for any given product.
@@ -22,7 +23,7 @@ class Products(object):
 
 		endpoint = self.url + "/marketplace/v1/products/{}/details"
 		endpoint = endpoint.format(product_id)
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	Retrieves a list of features for any given product.
@@ -33,7 +34,7 @@ class Products(object):
 
 		endpoint = self.url + "/marketplace/v1/products/{}/features"
 		endpoint = endpoint.format(product_id)
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	Retrieves a list of “included products” that come with any given product.
@@ -46,7 +47,7 @@ class Products(object):
 
 		endpoint = self.url + "/marketplace/v1/products/{}/includes"
 		endpoint = endpoint.format(product_id)
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	Retrieves a list of technical specifications for any given product. 
@@ -59,7 +60,7 @@ class Products(object):
 		
 		endpoint = self.url + "/marketplace/v1/products/{}/specs"
 		endpoint = endpoint.format(product_id)
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	Retrieves all Recommended Products for any given product. 
@@ -72,7 +73,7 @@ class Products(object):
 		
 		endpoint = self.url + "/marketplace/v1/products/{}/recommended"
 		endpoint = endpoint.format(product_id)
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	Retrieves a list of frequently asked questions for any given product.
@@ -83,11 +84,4 @@ class Products(object):
 		
 		endpoint = self.url + "/marketplace/v1/products/{}/faq"
 		endpoint = endpoint.format(product_id)
-		return self.make_get_request(endpoint, self.headers)
-
-	def make_get_request(self, endpoint, headers):
-		r = requests.get(endpoint, headers=headers)
-		if r.status_code == 200:
-			return r.content
-		else:
-			raise Exception("Exception, API returned " + str(r.status_code))
+		return Outbound.make_get_request(endpoint, self.headers)

@@ -1,5 +1,6 @@
 import requests
 from auth import Auth
+from outbound import Outbound
 
 class Cart(object):
 	def __init__(self):
@@ -13,7 +14,7 @@ class Cart(object):
 	'''
 	def validate_v1(self, data):
 		endpoint = self.url + "/marketplace/v1/cart/validate"
-		return self.make_post_request(endpoint, data, self.headers)
+		return Outbound.make_post_request(endpoint, data, self.headers)
 		
 
 	'''
@@ -23,12 +24,4 @@ class Cart(object):
 	'''
 	def validate_v2(self):
 		endpoint = "/marketplace/v2/cart/validate"
-		return self.make_post_request(endpoint, data, self.headers)
-
-
-	def make_post_request(self, url, data, headers):
-		r = requests.post(url, json=data, headers=headers)
-		if r.status_code == 200:
-			return r.content
-		else:
-			raise Exception("Exception, API returned " + str(r.status_code))
+		return Outbound.make_post_request(endpoint, data, self.headers)

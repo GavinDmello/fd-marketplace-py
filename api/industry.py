@@ -1,5 +1,6 @@
 import requests
 from auth import Auth
+from outbound import Outbound
 
 class Industry(object):
 	def __init__(self):
@@ -15,7 +16,7 @@ class Industry(object):
 		endpoint = url + "/marketplace/v1/categories/{}/industries"
 		endpoint = endpoint.format(category_name)
 
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
 	This endpoint retrieves the MCC - Merchant Category Code(s) - for a given industry.
@@ -25,7 +26,7 @@ class Industry(object):
 		endpoint = url + "/marketplace/v1/categories/{}/industries/{}/merchantcategorycodes"
 		endpoint = endpoint.format(category_name, industry_description)
 
-		return self.make_get_request(endpoint, self.headers)
+		return Outbound.make_get_request(endpoint, self.headers)
 
 	def make_get_request(self, url, headers):
 		r = requests.get(url, headers=headers)
