@@ -1,4 +1,3 @@
-import requests
 from auth import Auth
 from outbound import Outbound
 
@@ -27,10 +26,3 @@ class Industry(object):
 		endpoint = endpoint.format(category_name, industry_description)
 
 		return Outbound.make_get_request(endpoint, self.headers)
-
-	def make_get_request(self, url, headers):
-		r = requests.get(url, headers=headers)
-		if r.status_code == 200:
-			return r.content
-		else:
-			raise Exception("Exception, API returned " + str(r.status_code))

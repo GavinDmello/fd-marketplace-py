@@ -1,4 +1,3 @@
-import requests
 from auth import Auth
 from outbound import Outbound
 
