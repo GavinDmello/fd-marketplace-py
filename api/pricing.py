@@ -46,3 +46,14 @@ class Pricing(object):
 		endpoint = self.url + "/marketplace/v2/pricing/acquiring"
 
 		return Outbound.make_post_request(endpoint, data, self.headers)
+
+
+	'''
+	The POST Pricing/Equipment API can be used to retrieve “pricing” that applies to every merchant 
+	regardless of equipment purchased or qualifying criteria - 
+	each object returned is considered a “Pricing Product.”
+	'''
+	def post_pricing_global(self, data):
+		endpoint = url + "/marketplace/v1/pricing/global"
+
+		return Outbound.make_post_request(endpoint, data, self.headers)
