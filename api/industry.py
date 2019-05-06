@@ -12,7 +12,7 @@ class Industry(object):
 	can be used in the request of the GET MCC/Industry endpoint.
 	'''
 	def get_industry(self, category_name):
-		endpoint = url + "/marketplace/v1/categories/{}/industries"
+		endpoint = self.url + "/marketplace/v1/categories/{}/industries"
 		endpoint = endpoint.format(category_name)
 
 		return Outbound.make_get_request(endpoint, self.headers)
@@ -22,7 +22,7 @@ class Industry(object):
 
 	'''
 	def get_mcc_indusrty(self, category_name, industry_description):
-		endpoint = url + "/marketplace/v1/categories/{}/industries/{}/merchantcategorycodes"
+		endpoint = self.url + "/marketplace/v1/categories/{}/industries/{}/merchantcategorycodes"
 		endpoint = endpoint.format(category_name, industry_description)
 
 		return Outbound.make_get_request(endpoint, self.headers)

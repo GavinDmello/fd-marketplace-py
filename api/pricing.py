@@ -54,6 +54,6 @@ class Pricing(object):
 	each object returned is considered a “Pricing Product.”
 	'''
 	def post_pricing_global(self, data):
-		endpoint = url + "/marketplace/v1/pricing/global"
+		endpoint = self.url + "/marketplace/v1/pricing/global"
 
 		return Outbound.make_post_request(endpoint, data, self.headers)
