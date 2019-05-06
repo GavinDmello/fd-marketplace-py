@@ -36,3 +36,22 @@ class Application(object):
 		endpoint = self.url + "/marketplace/v1/application/signup"
 
 		return Outbound.make_post_request(endpoint, data, self.headers)
+
+	'''
+	This endpoint submits the Merchant Application form.
+	'''
+	def post_application_update(self, data):
+		endpoint = self.url + "/marketplace/v1/application/update"
+
+		return Outbound.make_post_request(endpoint, data, self.headers)
+
+	'''
+	This endpoint can be used to verify the abaNumber entered in the ACH information section 
+	(contactsInformation) of the Merchant Application form before submission. 
+	For every successful match this endpoint also retrieves additional information about the matched bank.
+	'''
+	def post_bank_validation_request(self, data):
+		endpoint = self.url + "/marketplace/v1/banks/validate"
+
+		return Outbound.make_post_request(endpoint, data, self.headers)
+
