@@ -39,3 +39,12 @@ class MerchantOrders(object):
  		endpoint = self.url + "/marketplace/v1/merchantorders/{}/accountpreferences"
  		endpoint = endpoint.format(order_id)
  		return Outbound.make_post_request(endpoint, orders, self.headers)
+
+ 	'''
+	This endpoint retrieves information about the status of the order based on its unique identifier. 
+	Depending on the status it also provides additional details, such as shipment tracking and merchant identifiers.
+ 	'''
+ 	def get_order_status_v1(self, order_id):
+ 		endpoint = self.url + "/marketplace/v1/merchantorders/{}/status"
+ 		endpoint = endpoint.format(order_id)
+ 		return Outbound.make_get_request(endpoint, self.headers)
