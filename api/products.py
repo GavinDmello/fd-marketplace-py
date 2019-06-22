@@ -36,8 +36,8 @@ class Products(object):
 		return Outbound.make_get_request(endpoint, self.headers)
 
 	'''
-	Retrieves a list of “included products” that come with any given product.
-	This may include things such as built-in hardware and accessories and/or 
+	Retrieves a list of included products that come with any given product.
+	This may include things such as built-in hardware and accessories and/or
 	software that comes with it.
 	'''
 	def get_product_includes(self, product_id):
