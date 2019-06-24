@@ -15,6 +15,10 @@ def test_set_credentials():
 	secret = "secret"
 	url = "url"
 	Auth.set_credentials(username, secret, url)
+	expected_url = "url/marketplace/v1/products"
 
 	p = Products()
-	assert p.get_products() == expected
+	result = p.get_products()
+	assert result == expected
+	assert Outbound.make_get_request.call_args_list[0][0][0] == expected_url
+	
