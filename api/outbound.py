@@ -8,7 +8,7 @@ class Outbound(object):
 		if r.status_code == 200:
 			return r.content
 		else:
-			raise Exception("Exception, API returned " + str(r.status_code))
+			raise Exception("API returned " + str(r.status_code))
 
 
 	@staticmethod
@@ -17,4 +17,4 @@ class Outbound(object):
 		if r.status_code == 200:
 			return r.content
 		else:
-			raise Exception("Exception, API returned " + str(r.status_code))
+			raise Exception("API returned " + str(r.status_code))

@@ -21,6 +21,6 @@ class Cart(object):
 	such as products or product types required to be bought together, etc.
 	API version 2
 	'''
-	def validate_v2(self):
-		endpoint = "/marketplace/v2/cart/validate"
+	def validate_v2(self, data):
+		endpoint = self.url + "/marketplace/v2/cart/validate"
 		return Outbound.make_post_request(endpoint, data, self.headers)
