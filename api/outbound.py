@@ -3,7 +3,7 @@ import requests
 class Outbound(object):
 	
 	@staticmethod
-	def make_get_request(self, endpoint, headers):
+	def make_get_request(endpoint, headers):
 		r = requests.get(endpoint, headers=headers)
 		if r.status_code == 200:
 			return r.content
@@ -12,7 +12,7 @@ class Outbound(object):
 
 
 	@staticmethod
-	def make_post_request(self, url, data, headers):
+	def make_post_request(url, data, headers):
 		r = requests.post(url, json=data, headers=headers)
 		if r.status_code == 200:
 			return r.content
