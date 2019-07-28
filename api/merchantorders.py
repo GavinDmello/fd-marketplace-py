@@ -35,7 +35,7 @@ class MerchantOrders(object):
  	'''
 	This endpoint collects advanced setup and account preferences for the merchant order.
  	'''
- 	def post_merchant_locations(self, order_id, orders):
+ 	def post_merchant_account_preferences(self, order_id, orders):
  		endpoint = self.url + "/marketplace/v1/merchantorders/{}/accountpreferences"
  		endpoint = endpoint.format(order_id)
  		return Outbound.make_post_request(endpoint, orders, self.headers)
