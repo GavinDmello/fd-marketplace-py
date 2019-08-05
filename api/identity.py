@@ -9,7 +9,7 @@ class Identity(object):
 	'''
 	This endpoint returns the multiple-choice questions and the list of possible answers for each of them. 
 	These can be presented to the user to verify their identity. 
-	The user’s answers are then submitted using the POST Identity/Answers endpoint.
+	The user's answers are then submitted using the POST Identity/Answers endpoint.
 	'''
 	def post_identity_questions(self, data):
 		endpoint = self.url + "/marketplace/v1/identity/questions"
